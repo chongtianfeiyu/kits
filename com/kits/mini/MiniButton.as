@@ -12,12 +12,19 @@ package com.kits.mini {
 	 */
 	public class MiniButton extends LabelButton {
 		private var _labelButtonVo:LabelButtonVo;
+		private var overSkin:Sprite;
+		private var normalSkin:Sprite;
+		private var disableSkin:Sprite;
 		
 		public function MiniButton(label:String = "") {
 			_labelButtonVo = new LabelButtonVo();
-			_labelButtonVo.overSkin = new Sprite();
-			_labelButtonVo.normalSkin = new Sprite();
-			_labelButtonVo.disableSkin = new Sprite();
+			overSkin = new Sprite();
+			normalSkin = new Sprite();
+			disableSkin = new Sprite();
+			
+			_labelButtonVo.overSkin = overSkin
+			_labelButtonVo.normalSkin = normalSkin
+			_labelButtonVo.disableSkin = disableSkin
 			_labelButtonVo.label = new MiniLabel(label)
 			_labelButtonVo.label.move(3, 0)
 			super(_labelButtonVo)
@@ -25,9 +32,9 @@ package com.kits.mini {
 		
 		override public function draw():void {
 			referSize(_labelButtonVo.label, 4, 0);
-			MiniStyle.drawSkin(_labelButtonVo.overSkin.graphics, MiniStyle.fillOverColor, MiniStyle.borderColor, _width, _height);
-			MiniStyle.drawSkin(_labelButtonVo.normalSkin.graphics, MiniStyle.fillColor, MiniStyle.borderColor, _width, _height);
-			MiniStyle.drawSkin(_labelButtonVo.disableSkin.graphics, MiniStyle.fillEnabledColor, MiniStyle.borderColor, _width, _height);
+			MiniStyle.drawSkin(overSkin.graphics, MiniStyle.fillOverColor, MiniStyle.borderColor, _width, _height);
+			MiniStyle.drawSkin(normalSkin.graphics, MiniStyle.fillColor, MiniStyle.borderColor, _width, _height);
+			MiniStyle.drawSkin(disableSkin.graphics, MiniStyle.fillEnabledColor, MiniStyle.borderColor, _width, _height);
 			super.draw();
 		}
 	}

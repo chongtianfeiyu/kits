@@ -7,10 +7,10 @@ package com.kits.vo {
 	 * @author 蓝面包
 	 */
 	public class ButtonVo extends KitVo {
-		public var normalSkin:Sprite;
-		public var downSkin:Sprite;
-		public var overSkin:Sprite;
-		public var disableSkin:Sprite;
+		public var normalSkin:DisplayObject;
+		public var downSkin:DisplayObject;
+		public var overSkin:DisplayObject;
+		public var disableSkin:DisplayObject;
 		public function ButtonVo() {
 			super();
 		}

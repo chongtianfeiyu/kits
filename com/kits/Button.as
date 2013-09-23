@@ -2,6 +2,7 @@ package com.kits {
 	import com.kits.vo.ButtonVo;
 	import flash.display.DisplayObject;
 	import flash.events.MouseEvent;
+	
 	/**
 	 * ...
 	 * @author 蓝面包
@@ -17,6 +18,7 @@ package com.kits {
 		private var _downSkin:DisplayObject;
 		private var _overSkin:DisplayObject;
 		private var _disableSkin:DisplayObject;
+		
 		public function Button(buttonVo:ButtonVo) {
 			_buttonVo = buttonVo;
 			mouseChildren = false;
@@ -26,6 +28,7 @@ package com.kits {
 			addEventListener(MouseEvent.MOUSE_OVER, mouseOver);
 			addEventListener(MouseEvent.MOUSE_OUT, mouseOut);
 			addEventListener(MouseEvent.MOUSE_DOWN, mouseDown);
+			addEventListener(MouseEvent.MOUSE_UP, mouseUp);
 			_normalSkin = buttonVo.normalSkin;
 			_downSkin = buttonVo.downSkin || buttonVo.overSkin || buttonVo.normalSkin;
 			_overSkin = buttonVo.overSkin || buttonVo.normalSkin;
@@ -36,18 +39,27 @@ package com.kits {
 			addChild(_disableSkin)
 			state = Button.NORMAL
 		}
+		
+		private function mouseUp(e:MouseEvent):void {
+			state = Button.NORMAL
+		}
+		
 		private function mouseDown(e:MouseEvent):void {
 			state = Button.DOWN
 		}
+		
 		private function mouseOut(e:MouseEvent):void {
 			state = Button.NORMAL
 		}
+		
 		private function mouseOver(e:MouseEvent):void {
 			state = Button.OVER
 		}
+		
 		override public function get enabled():Boolean {
 			return super.enabled;
 		}
+		
 		override public function set enabled(value:Boolean):void {
 			super.enabled = value;
 			if (value) {
@@ -56,9 +68,11 @@ package com.kits {
 				state = Button.DISABLE
 			}
 		}
+		
 		public function get state():String {
 			return _state;
 		}
+		
 		public function set state(value:String):void {
 			_state = value;
 			_normalSkin.visible = false;
