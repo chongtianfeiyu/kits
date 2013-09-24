@@ -40,6 +40,7 @@ package com.kits {
 				_scrollbarVo.upSkin.addEventListener(MouseEvent.MOUSE_DOWN, upSkin_mouseDown);
 			}
 			super();
+			redraw();
 		}
 		
 		public function get long():Number {

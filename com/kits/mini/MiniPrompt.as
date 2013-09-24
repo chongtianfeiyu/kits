@@ -9,20 +9,21 @@ package com.kits.mini {
 		private var _submitButton:MiniButton;
 		
 		public function MiniPrompt(width:int = 200) {
-			_textbox = new MiniTextbox("fuck", width - 10)
+			super(width, 50);
+			_textbox = new MiniTextbox("", width - 10)
 			_textbox.move(5, 5);
 			_submitButton = new MiniButton("SUBMIT")
-			super(width, 50);
 			content.addChild(_textbox)
 			content.addChild(_submitButton)
 		}
 		
 		override public function draw():void {
-			content.referSize(_textbox, 10, 30);
-			content.draw();
-			_height = content.height + windowVo.titleBox.height;
-			submitButton.y = content.height - 20;
-			submitButton.x = content.width / 2 - submitButton.width / 2;
+			_textbox.width = _width - 10;
+			_textbox.priorDraw();
+			_height = _textbox.height + 50;
+			submitButton.priorDraw();
+			submitButton.y = _height-40;
+			submitButton.x = _width / 2 - submitButton.width / 2;
 			super.draw();
 		}
 		
@@ -39,25 +40,25 @@ package com.kits.mini {
 			return _submitButton;
 		}
 		
-		override public function get width():Number {
-			return super.width;
-		}
-		
-		override public function set width(value:Number):void {
-			_textbox.width = value - 10
-			super.width = value;
-		}
-		
-		override public function get enabled():Boolean {
-			return super.enabled;
-		}
-		
-		override public function set enabled(value:Boolean):void {
-			super.enabled = value;
-			_textbox.enabled = value;
-			_submitButton.enabled = value;
-			windowVo.title.enabled = value;
-			windowVo.closeButton.enabled = value;
-		}
+		//override public function get width():Number {
+			//return super.width;
+		//}
+		//
+		//override public function set width(value:Number):void {
+			//_textbox.width = value - 10
+			//super.width = value;
+		//}
+		//
+		//override public function get enabled():Boolean {
+			//return super.enabled;
+		//}
+		//
+		//override public function set enabled(value:Boolean):void {
+			//super.enabled = value;
+			//_textbox.enabled = value;
+			//_submitButton.enabled = value;
+			//windowVo.title.enabled = value;
+			//windowVo.closeButton.enabled = value;
+		//}
 	}
 }

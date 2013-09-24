@@ -28,6 +28,7 @@ package com.kits.mini {
 			_labelButtonVo.label = new MiniLabel(label)
 			_labelButtonVo.label.move(3, 0)
 			super(_labelButtonVo)
+			redraw();
 		}
 		
 		override public function draw():void {

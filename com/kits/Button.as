@@ -38,6 +38,7 @@ package com.kits {
 			addChild(_overSkin)
 			addChild(_disableSkin)
 			state = Button.NORMAL
+			//referSize(this);
 		}
 		
 		private function mouseUp(e:MouseEvent):void {

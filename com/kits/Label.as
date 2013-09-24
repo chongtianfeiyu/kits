@@ -23,12 +23,19 @@ package com.kits {
 			addChild(_labelVo.textField);
 		}
 		
+		override public function draw():void {
+			_labelVo.textField.text = _labelVo.text;
+			_width = (_labelVo.textField.width >> 0);
+			_height = (_labelVo.textField.height >> 0);
+			super.draw();
+		}
+		
 		public function get text():String {
-			return _labelVo.textField.text;
+			return _labelVo.text;
 		}
 		
 		public function set text(value:String):void {
-			_labelVo.textField.text = value;
+			_labelVo.text = value;
 			redraw()
 		}
 		

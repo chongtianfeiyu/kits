@@ -7,6 +7,7 @@ package com.kits.vo {
 		public var wordWrap:Boolean;
 		public var color:int;
 		public var disableColor:int;
+		public var text:String;
 		public function LabelVo() {
 		}
 	}

@@ -23,6 +23,7 @@ package com.kits.mini {
 		override public function draw():void {
 			_scrollbarVo.downSkin.x = _scrollbarVo.long + _scrollbarVo.upSkin.width;
 			slider.x = _scrollbarVo.upSkin.width;
+			super.draw();
 		}
 	}
 }

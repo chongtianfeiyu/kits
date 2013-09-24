@@ -16,7 +16,7 @@ package com.kits.mini {
 		private var colorButton:MiniButton;
 		private var miniTextbox:MiniTextbox;
 		private var miniTextButton:MiniTextButton;
-		private var miniBox:MiniBox;
+		private var miniPanel:MiniPanel;
 		private var miniPrompt:MiniPrompt;
 		private var miniWindow:MiniWindow;
 		private var miniSlider:MiniVSlider;
@@ -47,13 +47,13 @@ package com.kits.mini {
 			colorButton.move(400, 300);
 			addChild(colorButton);
 			//-------------------------------
-			miniBox = new MiniBox(200, 100)
-			miniBox.move(400, 200);
-			addChild(miniBox);
+			miniPanel = new MiniPanel(200, 100)
+			miniPanel.move(400, 200);
+			addChild(miniPanel);
 			miniButton = new MiniButton("MiniButton\nMiniButton");
 			miniButton.width = 10; //无效操作
 			miniButton.move(-10, -10);
-			miniBox.addChild(miniButton);
+			miniPanel.addChild(miniButton);
 			miniWindow = new MiniWindow();
 			miniWindow.title = "MiniWindow"
 			miniWindow.height = 50;
@@ -73,7 +73,6 @@ package com.kits.mini {
 			miniSlider.addEventListener(PlusMouseEvent.DRAG, miniSlider_drag);
 			addChild(miniSlider)
 			miniVScrollbar = new MiniVScrollbar(200);
-			trace(miniVScrollbar.height)
 			miniVScrollbar.move(400, 100)
 			addChild(miniVScrollbar);
 		}

@@ -14,14 +14,17 @@ package com.kits {
 	[Event(name="draw",type="com.kits.KitEvent")]
 	
 	public class Kit extends Sprite implements IDragObject {
+		private static var _tag:int
+		//protected var _vo:KitVo;
 		protected var _tag:int;
 		protected var _enabled:Boolean;
 		protected var _width:int;
 		protected var _height:int;
 		
 		public function Kit() {
+			_tag = Kit.tag
 			_enabled = true;
-			redraw();
+			//redraw();
 		}
 		
 		protected function redraw():void {
@@ -37,15 +40,23 @@ package com.kits {
 			dispatchEvent(new KitEvent(KitEvent.DRAW));
 		}
 		
-		public function referSize(displayObject:DisplayObject, width:int = 0, height:int = 0):void {
-			_width = (displayObject.width >> 0) + width;
-			_height = (displayObject.height >> 0) + height;
+		public function referSize(kit:Kit, width:int = 0, height:int = 0):void {
+			kit.priorDraw()
+			_width = (kit.width >> 0) + width;
+			_height = (kit.height >> 0) + height;
 		}
 		
 		/**
 		 * 抽象部位绘图,用于子类覆盖实现.
 		 */
 		public function draw():void {
+		}
+		
+		public function priorDraw():void {
+			if (hasEventListener(Event.EXIT_FRAME)) {
+				draw()
+				removeEventListener(Event.EXIT_FRAME, onRedraw);
+			}
 		}
 		
 		public function move(x:Number, y:Number):void {
@@ -139,6 +150,14 @@ package com.kits {
 			return super.height
 		}
 		
+		static public function get tag():int {
+			_tag++
+			return _tag;
+		}
+		
+		//public function set vo(value:KitVo):void {
+		//_vo = value;
+		//}
 		/**
 		 * 本组件系统希望能在不缩放的舞台的上显示.
 		 */

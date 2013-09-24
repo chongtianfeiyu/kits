@@ -23,8 +23,10 @@ package com.kits.mini {
 		}
 		
 		override public function draw():void {
+			trace("fuckkk")
 			_scrollbarVo.downSkin.y = _height - _scrollbarVo.upSkin.height;
 			slider.y = 14;
+			super.draw();
 		}
 		
 		override public function get height():Number {

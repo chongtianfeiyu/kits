@@ -2,6 +2,7 @@ package com.kits.mini {
 	import com.kits.Label;
 	import com.kits.vo.LabelVo;
 	import flash.text.TextField;
+	
 	/**
 	 * ...
 	 * @author 蓝面包
@@ -9,6 +10,7 @@ package com.kits.mini {
 	public class MiniLabel extends Label {
 		private var _labelVo:LabelVo;
 		private var _textField:TextField;
+		
 		public function MiniLabel(text:String = "") {
 			_textField = new TextField();
 			_textField.mouseEnabled = false;
@@ -24,8 +26,11 @@ package com.kits.mini {
 			this.color = int(MiniStyle.defaultTextFormat.color);
 			this.disableColor = MiniStyle.textEnabledColor;
 		}
+		
 		override public function draw():void {
-			referSize(_labelVo.textField, 0, 1);
+			_width = _textField.width >> 0;
+			_height = _textField.height >> 0;
+			super.draw();
 		}
 	}
 }

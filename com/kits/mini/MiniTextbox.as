@@ -31,9 +31,5 @@ package com.kits.mini {
 			super.width = value;
 			_textField.width = value;
 		}
-		
-		override public function draw():void {
-			referSize(_labelVo.textField, 0, 0);
-		}
 	}
 }
