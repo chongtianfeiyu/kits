@@ -25,7 +25,6 @@ package com.kits {
 		}
 		
 		override public function draw():void {
-			trace(_progress)
 			progressBarVo.barSkin.width = progressBarVo.width * _progress;
 			super.draw();
 		}
