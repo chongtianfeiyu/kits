@@ -1,12 +1,12 @@
 package com.kits {
 	import com.kits.vo.WindowVo;
-	import com.xmas.standard.IDragObject;
+	import com.xmas.standard.IPoint;
 	import com.xmas.utils.bound;
 	import com.xmas.utils.Drager;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
 	
-	public class Window extends Panel implements IDragObject {
+	public class Window extends Panel implements IPoint {
 		private var _windowVo:WindowVo;
 		private var _drager:Drager;
 		

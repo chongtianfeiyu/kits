@@ -1,5 +1,5 @@
 package com.kits {
-	import com.xmas.standard.IDragObject;
+	import com.xmas.standard.IPoint;
 	import flash.display.DisplayObject;
 	import flash.display.Graphics;
 	import flash.display.Sprite;
@@ -13,7 +13,7 @@ package com.kits {
 	 */
 	[Event(name="draw",type="com.kits.KitEvent")]
 	
-	public class Kit extends Sprite implements IDragObject {
+	public class Kit extends Sprite implements IPoint {
 		private static var _tag:int
 		//protected var _vo:KitVo;
 		protected var _tag:int;
